@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7931e;
+}
+
+/*ヘッダーのスタイル*/
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 10vh;
+  background-color: white;
+}
+
+/*ロゴのスタイル*/
+.logo {
+  width: 20%;
+  text-align: center;
+}
+
+
+
+/*ここからハンバーガーナビゲーション関連のスタイル*****************************/
+
+/*ハンバーガーメニューアイコンスタイル*/
+.humberger-icon {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/*ハンバーガーメニューアイコン　アイコンのボックスと３本線*/
+.humberger-icon, .humberger-icon span {
+  display: inline-block;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+
+/*ハンバーガーメニューアイコン　アイコンのボックス*/
+.humberger-icon {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 35px;
+  height: 22px;
+  z-index: 10;
+}
+
+/*ハンバーガーメニューアイコン　３本線（通常時）*/
+.humberger-icon span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f7931e;
+  z-index: 10;
+}
+
+/*ハンバーガーメニューアイコン　３本線（一番上-通常時）*/
+.humberger-icon span:nth-of-type(1) {
+  top: 0px;
+}
+
+/*ハンバーガーメニューアイコン　３本線（真ん中-通常時）*/
+.humberger-icon span:nth-of-type(2) {
+  top: 10px;
+}
+
+/*ハンバーガーメニューアイコン　３本線（一番下-通常時）*/
+.humberger-icon span:nth-of-type(3) {
+  bottom: 0px;
+}
+
+/*ハンバーガーメニューアイコン　３本線（一番上-クリックされた時）*/
+.humberger-icon.active span:nth-of-type(1) {
+  -webkit-transform: translateY(10px) rotate(45deg);
+  transform: translateY(10px) rotate(45deg);
+}
+
+/*ハンバーガーメニューアイコン　３本線（真ん中-クリックされた時）*/
+.humberger-icon.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+/*ハンバーガーメニューアイコン　３本線（一番下-クリックされた時）*/
+.humberger-icon.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/*展開されるナビゲーション（初めの状態は不透明0で非表示）*/
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  overflow: scroll;
+}
+
+/*展開されるナビゲーション（クリックされた状態は不透明100%で表示）*/
+.nav.active {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+/*展開されるナビゲーションのリスト全体のスタイル*/
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+}
+
+/*展開されるナビゲーションのリストのスタイル*/
+.nav ul li {
+  list-style-type: none;
+  padding: 1vw 0;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+
+}
+
+/*展開されるナビゲーションのリンクボタンのスタイル*/
+.nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
